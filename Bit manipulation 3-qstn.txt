@@ -1,0 +1,43 @@
+public class Main
+{
+    static void test(int out[],int exp[])
+    { 
+         int count=0;
+        for(int i=0;i<out.length;i++)
+        {
+            if(out[i]==exp[i])
+            count++;
+        }
+        if(count==out.length)
+        System.out.println("Correct");
+        else
+        System.out.println("Wrong");
+    }
+    static int findMax(int b[])
+    {
+        int max = 0, res;
+       for (int i = 0; i < b.length - 1; i++)
+      {
+	for (int j = i + 1; j < b.length; j++)
+	  {
+	    res = b[i] ^ b[j];
+	    if (res > max)
+	      max = res;
+	  }
+      } 
+      return max;
+    }
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    
+    int a[][] = { {1, 2, 3, 4, 5} ,{3,10,5,25,2,8},{2,10},{0,1},{100,98,65,4},{90,82,41,1},{0,100,50},{1000,500,100,0}};
+    int exp[]={7,28,8,1,102,123,100,1000};
+    int out[]=new int[8];
+    for(int k=0;k<8;k++)
+    {
+        out[k]=findMax(a[k]);
+    }
+    test(out,exp);
+  }
+}
